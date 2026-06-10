@@ -3,6 +3,7 @@ import time
 import cfun
 import sys
 import random
+# 测试
 
 
 def getdetail(page, url):
