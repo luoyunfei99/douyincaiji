@@ -1,0 +1,8 @@
+安装包
+1、首先生成依赖列表文件：
+pip freeze > requirements.txt
+
+2、在新环境中安装所有依赖：
+
+# 使用阿里云镜像源
+pip install -r requirements.txt -i https://mirrors.aliyun.com/pypi/simple/

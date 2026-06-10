@@ -1,0 +1,86 @@
+[
+  {
+    "name": "web界面服务",
+    "path": "apiserver.py",
+    "desc": "web界面服务",
+    "args": ""
+  },
+  {
+    "name": "IP白名单",
+    "path": "ipwhite.py",
+    "desc": "IP白名单管理",
+    "args": ""
+  },
+  {
+    "name": "代理ip获取",
+    "path": "proxy.py",
+    "desc": "代理IP获取服务",
+    "args": ""
+  },
+  {
+    "name": "视频留言实时监听",
+    "path": "douyin_comment.py",
+    "desc": "实时监听视频留言",
+    "args": "-port 9111 -datapath tmp/googledata/videolisten -useproxy 1"
+  },
+  {
+    "name": "视频留言周期抓取",
+    "path": "douyin_commment_zhouqi.py",
+    "desc": "周期性视频留言抓取",
+    "args": "-port 9112 -datapath tmp/googledata/videozhouqi -useproxy 1"
+  },
+  {
+    "name": "留言主页抓取",
+    "path": "douyin_video_user.py",
+    "desc": "留言用户主页抓取",
+    "args": "-port 9113 -datapath tmp/googledata/videouser -useproxy 1"
+  },
+  {
+    "name": "抖音主页抓取",
+    "path": "douyin_hao.py",
+    "desc": "抖音账号主页信息抓取",
+    "args": "-port 9114 -datapath tmp/googledata/hao -useproxy 1"
+  },
+  {
+    "name": "历史视频留言抓取",
+    "path": "douyin_comment_history.py",
+    "desc": "历史视频留言抓取",
+    "args": "-port 9115 -datapath tmp/googledata/videohistory -useproxy 1"
+  },
+  {
+    "name": "历史视频留言主页抓取",
+    "path": "douyin_comment_history_cover.py",
+    "desc": "历史视频留言主页抓取",
+    "args": "-port 9116 -datapath tmp/googledata/userhistory -useproxy 1"
+  },
+  {
+    "name": "直播间自动抓取",
+    "path": "DouyinLiveWebFetcher-main/lives.py",
+    "desc": "直播间自动抓取",
+    "args": ""
+  },
+  {
+    "name": "直播用户抓取",
+    "path": "douyin_live_user.py",
+    "desc": "直播间用户列表抓取",
+    "args": "-port 9117 -datapath tmp/googledata/liveuser -useproxy 1"
+  },
+  {
+    "name": "直播间手动抓取",
+    "path": "DouyinLiveWebFetcher-main/main.py",
+    "desc": "直播间手动抓取，参数输入直播id",
+    "args": ""
+  },
+  {
+    "name": "新监听视频留言",
+    "path": "apicomment.py",
+    "desc": "直播间手动抓取，参数输入直播id",
+    "args": ""
+  },
+  {
+    "name": "新用户抓取",
+    "path": "apiuser.py",
+    "desc": "直播间手动抓取，参数输入直播id",
+    "args": ""
+  }
+]
