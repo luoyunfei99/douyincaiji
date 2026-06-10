@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>抖音数据抓取管理界面</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- 引入 jQuery 库 -->
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="script.js"></script>
+    <!-- 引入 serializeJSON 插件 -->
+    <script src="js/jquery.serializejson.min.js"></script>
+</head>
+
+<body>
+<h2>历史数据url管理</h2>
+<!-- 创建记录表单 -->
+<form id="create-douyin_history_url-form">
+    <label for="douyin_history_url">链接：</label>
+    <input type="text" id="douyin_history_url" name="url" style="width: 400px;" required>
+    <label for="douyin-keyword">品牌:</label>
+    <input type="text" id="douyin-keyword" name="keyword" required>
+    <label for="douyin-hangye">行业:</label>
+    <input type="text" id="douyin-hangye" name="hangye" required>
+    <button type="submit">添加</button>
+</form>
+<!-- 获取所有记录表单 -->
+<form id="get-all-douyin_history_urls-form">
+    <label for="douyin-filter-url">链接：</label>
+    <input type="text" id="douyin-filter-url" name="url">
+    <label for="douyin-filter-status">状态（0|1）:</label>
+    <input type="number" id="douyin-filter-status" name="status">
+    <label for="douyin-filter-keyword">品牌:</label>
+    <input type="text" id="douyin-filter-keyword" name="keyword">
+    <label for="douyin-filter-hangye">行业:</label>
+    <input type="text" id="douyin-filter-hangye" name="hangye">
+    <label for="douyin-page">Page:</label>
+    <input type="number" id="douyin-page" name="page" value="1">
+    <label for="douyin-page-size">Page Size:</label>
+    <input type="number" id="douyin-page-size" name="page_size" value="10"><br>
+    <button type="submit">查询</button>
+</form>
+<!-- 显示结果的表格 -->
+<table id="douyin_history_urls-table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>链接</th>
+            <th>状态</th>
+            <th>品牌</th>
+            <th>行业</th>
+            <th>留言数</th>
+            <th>操作</th>
+        </tr>
+    </thead>
+    <tbody></tbody>
+</table>
+<!-- 分页导航 -->
+<div id="douyin_history_urls-pagination" class="pagination"></div>
+</body>
+</html>

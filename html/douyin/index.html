@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>抖音数据抓取管理界面</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- 引入 jQuery 库 -->
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="script.js"></script>
+    <!-- 引入 serializeJSON 插件 -->
+    <script src="js/jquery.serializejson.min.js"></script>
+</head>
+
+<body>
+    <div class="sidebar">
+        <ul>
+            <li class="active"><a href="douyin-hao-url.html" target="mainFrame">抖音主页链接管理</a></li>
+            <li><a href="douyin-url.html" target="mainFrame">监听视频url管理</a></li>
+            <li><a href="douyin-history-url.html" target="mainFrame">历史数据url管理</a></li>
+            <li><a href="douyin-live.html" target="mainFrame">直播管理</a></li>
+            <li><a href="douyin-keyword.html" target="mainFrame">关键词采集管理</a></li>
+        </ul>
+    </div>
+    <iframe id="mainFrame" name="mainFrame" class="main-content" src="douyin-hao-url.html" frameborder="0" scrolling="no" ></iframe>
+
+</body>
+<script>
+    $(document).ready(function() {
+        $('.sidebar li').on('click', function() {
+            // 移除所有选中状态
+            $('.sidebar li').removeClass('active');
+            // 添加当前选中状态
+            $(this).addClass('active');
+        });
+    // 监听iframe加载事件
+    $('#mainFrame').on('load', function() {
+        adjustIframeHeight(this);
+        // 添加内容变化监听
+        setupContentObserver(this);
+    });
+});
+
+    // 调整iframe高度的函数
+    function adjustIframeHeight(iframe) {
+        try {
+            // 获取iframe内容的实际高度
+            var height = iframe.contentWindow.document.body.scrollHeight + 100;
+            // 设置iframe高度
+            iframe.style.height = height + 'px';
+        } catch (e) {
+            console.log('无法调整iframe高度:', e);
+            // 默认高度
+            iframe.style.height = '800px';
+        }
+    }
+
+    // 设置内容变化观察者
+function setupContentObserver(iframe) {
+    try {
+        // 获取iframe的文档
+        var doc = iframe.contentWindow.document;
+        
+        // 创建一个观察器实例
+        var observer = new MutationObserver(function(mutations) {
+            // 内容发生变化时调整高度
+            adjustIframeHeight(iframe);
+        });
+        
+        // 配置观察选项:
+        var config = { 
+            attributes: true, 
+            childList: true, 
+            subtree: true,
+            characterData: true
+        };
+        
+        // 传入目标节点和观察选项
+        observer.observe(doc.body, config);
+        
+        // 同时监听窗口大小变化
+        $(iframe.contentWindow).on('resize', function() {
+            adjustIframeHeight(iframe);
+        });
+        
+        console.log('内容变化监听已设置');
+    } catch (e) {
+        console.log('无法设置内容变化监听:', e);
+        
+        // 备选方案：定期检查高度变化
+        setInterval(function() {
+            adjustIframeHeight(iframe);
+        }, 1000);
+    }
+}
+</script>
+</html>

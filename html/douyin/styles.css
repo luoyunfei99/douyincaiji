@@ -1,0 +1,99 @@
+body {
+    font-family: Arial, sans-serif;
+}
+#mainFrame{
+    width: 84%;
+    float: right;
+    border: none;
+    overflow-y: hidden;
+    min-height: 800px;
+}
+.sidebar {
+    width: 15%;
+    float: left;
+    background-color: #333;
+    color: white;
+    padding-top: 20px;
+    overflow-y: auto;
+    min-height: 800px;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar li {
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+.sidebar li:hover {
+    background-color: #555;
+}
+
+.sidebar li.active {
+    background-color: #4CAF50; /* 选中状态背景色 */
+}
+
+.sidebar a {
+    color: white;
+    text-decoration: none;
+    display: block;
+}
+
+.main-content {
+    flex: 1;
+    border: none;
+    min-height: 100px;
+}
+
+.content-section {
+    display: none;
+}
+
+h2 {
+    margin-top: 30px;
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+input,
+select {
+    margin-bottom: 10px;
+    padding: 5px;
+    /* width: 200px; */
+}
+
+button {
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th,
+td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+    max-width: 500px;
+    word-break: break-all;
+}
+
+.pagination {
+    margin-top: 20px;
+}
+
+.pagination button {
+    margin: 0 5px;
+}
+.red{
+    color: red;
+}

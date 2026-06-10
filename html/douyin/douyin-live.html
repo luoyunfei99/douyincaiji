@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>抖音数据抓取管理界面</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- 引入 jQuery 库 -->
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="script.js"></script>
+    <!-- 引入 serializeJSON 插件 -->
+    <script src="js/jquery.serializejson.min.js"></script>
+    <link rel="stylesheet" href="js/jquery-ui.css">
+    <script src="js/jquery-ui.min.js"></script>
+    
+    <script>
+        $( function() {
+            $("#addtime_from").datepicker();
+            $("#addtime_to").datepicker();
+            $("#lastlistentime_from").datepicker();
+            $("#lastlistentime_to").datepicker();
+            $("#lasttixingtime_from").datepicker();
+            $("#lasttixingtime_to").datepicker();
+        } );
+        </script>
+</head>
+
+<body>
+<h2>直播管理</h2>
+<!-- 创建记录表单 -->
+<form id="create-douyin-live-form">
+    <input type="hidden" name="status" value="1">
+    <label for="douyin-live">直播id：</label>
+    <input type="text" id="douyin-liveid" name="liveid">
+    <label for="douyin-name">名称:</label>
+    <input type="text" id="douyin-name" name="name">
+    <label for="douyin-touser">提醒人:</label>
+    <input type="text" id="douyin-touser" name="touser">
+    <label for="douyin-islisten">是否监听:</label>
+    <input type="checkbox" name="islisten" value="1">
+    <button type="submit">添加</button>
+</form>
+<!-- 获取所有记录表单 -->
+<form id="get-all-douyin-live-form">
+    <label for="douyin-filter-liveid">直播id：</label>
+    <input type="text" id="douyin-filter-liveid" name="liveid">
+    <label for="douyin-filter-name">名称:</label>
+    <input type="text" id="douyin-filter-name" name="name">
+    <label for="douyin-filter-keyword">状态:</label>
+    <select id="douyin-status" name="status">
+        <option value="">请选择</option>
+        <option value="0">待开始</option>
+        <option value="1">进行中</option>
+        <option value="2">已完成</option>
+    </select>
+    是否监听：<input type="checkbox" name="islisten" value="1">
+    添加时间：<input type="text" id="addtime_from" name="addtime_from"> - <input type="text" id="addtime_to" name="addtime_to">
+    <br/>
+    最后监听时间：<input type="text" id="lastlistentime_from" name="lastlistentime_from"> - <input type="text" id="lastlistentime_to" name="lastlistentime_to">
+    最后提醒时间：<input type="text" id="lasttixingtime_from" name="lasttixingtime_from"> - <input type="text" id="lasttixingtime_to" name="lasttixingtime_to">
+
+    <label for="douyin-filter-touser">提醒人:</label>
+    <input type="text" id="douyin-filter-touser" name="touser"><br/>
+    <label for="douyin-page">Page:</label>
+    <input type="number" id="douyin-page" name="page" value="1">
+    <label for="douyin-page-size">Page Size:</label>
+    <input type="number" id="douyin-page-size" name="page_size" value="10"><br>
+    <button type="submit">查询</button>  <button type="reset">重置</button>
+</form>
+<!-- 显示结果的表格 -->
+<table id="douyin-live-table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>直播id</th>
+            <th>名称</th>
+            <th>状态</th>
+            <th>添加时间</th>
+            <th>更新时间</th>
+            <th>是否监听</th>
+            <th>最后监听时间</th>
+            <th>最后提醒时间</th>
+            <th>提醒人</th>
+            <th>操作</th>
+        </tr>
+    </thead>
+    <tbody></tbody>
+</table>
+<!-- 分页导航 -->
+<div id="douyin-live-pagination" class="pagination"></div>
+</body>
+</html>

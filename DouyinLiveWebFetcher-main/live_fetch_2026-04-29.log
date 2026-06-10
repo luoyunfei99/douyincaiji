@@ -1,0 +1,83 @@
+2026-04-29 16:46:42,083 - __main__ - INFO - 启动直播抓取程序，直播间: https://live.douyin.com/628469132882
+2026-04-29 16:46:42,085 - __main__ - ERROR - 写入文件异常: live\628469132882.txt - module 'signal' has no attribute 'SIGALRM'
+Traceback (most recent call last):
+  File "D:\python\douyin\DouyinLiveWebFetcher-main\main_listen.py", line 78, in write_to_file
+    with file_operation_timeout(FILE_TIMEOUT):
+  File "D:\python\Python310\lib\contextlib.py", line 135, in __enter__
+    return next(self.gen)
+  File "D:\python\douyin\DouyinLiveWebFetcher-main\main_listen.py", line 49, in file_operation_timeout
+    signal.signal(signal.SIGALRM, timeout_handler)
+AttributeError: module 'signal' has no attribute 'SIGALRM'
+2026-04-29 16:46:42,090 - __main__ - INFO - 直播[628469132882]开始第1次重试抓取
+2026-04-29 16:46:42,092 - __main__ - ERROR - 写入文件异常: live\628469132882.txt - module 'signal' has no attribute 'SIGALRM'
+Traceback (most recent call last):
+  File "D:\python\douyin\DouyinLiveWebFetcher-main\main_listen.py", line 78, in write_to_file
+    with file_operation_timeout(FILE_TIMEOUT):
+  File "D:\python\Python310\lib\contextlib.py", line 135, in __enter__
+    return next(self.gen)
+  File "D:\python\douyin\DouyinLiveWebFetcher-main\main_listen.py", line 49, in file_operation_timeout
+    signal.signal(signal.SIGALRM, timeout_handler)
+AttributeError: module 'signal' has no attribute 'SIGALRM'
+2026-04-29 16:46:43,636 - websocket - INFO - Websocket connected
+2026-04-29 16:47:00,434 - websocket - INFO - tearing down on exception 
+2026-04-29 16:47:00,435 - __main__ - INFO - 直播[628469132882]抓取器启动成功
+2026-04-29 16:47:00,459 - __main__ - INFO - 
+用户手动中断程序
+2026-04-29 16:47:00,459 - __main__ - ERROR - 数据库连接失败 - MySQLHandler.connect() got an unexpected keyword argument 'timeout'
+Traceback (most recent call last):
+  File "D:\python\douyin\DouyinLiveWebFetcher-main\main_listen.py", line 171, in main
+    time.sleep(CHECK_INTERVAL)
+KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\python\douyin\DouyinLiveWebFetcher-main\main_listen.py", line 95, in get_db_connection
+    db.connect(timeout=DB_TIMEOUT)  # 假设MySQLHandler支持timeout参数，若不支持需调整
+TypeError: MySQLHandler.connect() got an unexpected keyword argument 'timeout'
+2026-04-29 16:47:00,460 - __main__ - ERROR - 更新直播[628469132882]状态失败 - MySQLHandler.connect() got an unexpected keyword argument 'timeout'
+Traceback (most recent call last):
+  File "D:\python\douyin\DouyinLiveWebFetcher-main\main_listen.py", line 171, in main
+    time.sleep(CHECK_INTERVAL)
+KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\python\douyin\DouyinLiveWebFetcher-main\main_listen.py", line 110, in update_live_status
+    with get_db_connection() as db:
+  File "D:\python\Python310\lib\contextlib.py", line 135, in __enter__
+    return next(self.gen)
+  File "D:\python\douyin\DouyinLiveWebFetcher-main\main_listen.py", line 95, in get_db_connection
+    db.connect(timeout=DB_TIMEOUT)  # 假设MySQLHandler支持timeout参数，若不支持需调整
+TypeError: MySQLHandler.connect() got an unexpected keyword argument 'timeout'
+2026-04-29 16:47:00,466 - __main__ - ERROR - 写入文件异常: live\628469132882.txt - module 'signal' has no attribute 'SIGALRM'
+Traceback (most recent call last):
+  File "D:\python\douyin\DouyinLiveWebFetcher-main\main_listen.py", line 171, in main
+    time.sleep(CHECK_INTERVAL)
+KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\python\douyin\DouyinLiveWebFetcher-main\main_listen.py", line 176, in main
+    update_live_status(live_id, {'is_run': 0})
+  File "D:\python\douyin\DouyinLiveWebFetcher-main\main_listen.py", line 110, in update_live_status
+    with get_db_connection() as db:
+  File "D:\python\Python310\lib\contextlib.py", line 135, in __enter__
+    return next(self.gen)
+  File "D:\python\douyin\DouyinLiveWebFetcher-main\main_listen.py", line 95, in get_db_connection
+    db.connect(timeout=DB_TIMEOUT)  # 假设MySQLHandler支持timeout参数，若不支持需调整
+TypeError: MySQLHandler.connect() got an unexpected keyword argument 'timeout'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\python\douyin\DouyinLiveWebFetcher-main\main_listen.py", line 78, in write_to_file
+    with file_operation_timeout(FILE_TIMEOUT):
+  File "D:\python\Python310\lib\contextlib.py", line 135, in __enter__
+    return next(self.gen)
+  File "D:\python\douyin\DouyinLiveWebFetcher-main\main_listen.py", line 49, in file_operation_timeout
+    signal.signal(signal.SIGALRM, timeout_handler)
+AttributeError: module 'signal' has no attribute 'SIGALRM'
+2026-04-29 16:47:00,470 - __main__ - INFO - 程序退出，直播[628469132882]最终状态: 已停止
